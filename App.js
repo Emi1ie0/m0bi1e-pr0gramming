@@ -10,34 +10,36 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-<NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Main">
+        <Stack.Screen name="Main" component={MainScreen} />
         <Stack.Screen name="Compte" component={CompteScreen} />
         <Stack.Screen name="Amis" component={AmisScreen} />
         <Stack.Screen name="Planner" component={PlannerScreen} />
-        {/* Ajoutez un écran nommé "Planner" si nécessaire */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-function HomeScreen({ navigation }) { 
+function MainScreen({ navigation }) { 
   return (
     <View style={styles.container}>
       {/* Header section with logo and button */}
       <View style={styles.header}>
-        <View style={styles.logoContainer}>
-          <Text>PB</Text>
-        </View>
+
+        <Image
+          source={require('./assets/logo.png')}
+          style={styles.logoStyle}
+        />
+
         <View style={styles.AmisContainer}>
-          <Button title="Compte" onPress={() => navigation.navigate('Compte')} />
+          <Button title="Compte" onPress={() => navigation.navigate('Compte')} color="black"/>
         </View>
       </View>
 
       <View style={styles.Pibi}>
         <Image
-          source={require('./assets/PBGros.png')}
+          source={require('./assets/Pibii.png')}
           style={styles.imageStyle}
         />
 
@@ -55,9 +57,9 @@ function HomeScreen({ navigation }) {
 
       {/* Menu section */}
       <View style={styles.menu}>
-        <Button title="Planner" onPress={() => {navigation.navigate('Planner') }} />
-        <Button title="Home" onPress={() => { navigation.navigate('App')}} />
-        <Button title="Amis" onPress={() => { navigation.navigate('Amis')}} />
+        <Button title="Planner" onPress={() => {navigation.navigate('Planner') }} color="black"/>
+        <Button title="Home" onPress={() => { navigation.navigate('App')}} color="black"/>
+        <Button title="Amis" onPress={() => { navigation.navigate('Amis')}} color="black"/>
       </View>
     </View>
   );
@@ -65,12 +67,13 @@ function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#F5FCFF",
     flex: 1,
     paddingHorizontal: 10,
   },
   header: {
     alignItems: 'center',
-    backgroundColor: "lightyellow",
+    backgroundColor: "#74A17B",
     height: 120,
     position: "absolute",
     flexDirection: "row",
@@ -104,19 +107,25 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "lightblue",
+    backgroundColor: "#74A17B",
     height: 100,
   },
   imageStyle: {
     top: '30%',
-    left: '-7%',
+    left: '7%',
     resizeMode: 'cover',
     width: 350,
     height: 470,
   },
+  logoStyle: {
+    top: '-5%',
+    left: '110%',
+    height: 100,
+    width: 100,
+  },
   bubble: {
     position: 'absolute',
-    backgroundColor: '#B2FFA6',
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 10,
     top: "15%",
@@ -125,7 +134,8 @@ const styles = StyleSheet.create({
   },
   Pibi: {
     position: 'absolute',
-    backgroundColor: 'white',
+
+    backgroundColor: "#BCCEBF",
     borderRadius: 10,
     height: '78%',
     top: '12%',
@@ -143,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderTopColor: '#B2FFA6',
+    borderTopColor: 'white',
     top: 18,
     left: 30,
   },

@@ -40,17 +40,22 @@ const CompteScreen = () => {
         <Button
           title="Mois"
           style={styles.buttonCal}
-          onPress={() => setViewMode("month")}
+          onPress={() => setViewMode("month")
+          
+        }
+        color="black"
         />
         <Button
           title="Semaine"
           style={styles.buttonCal}
           onPress={() => setViewMode("week")}
+          color="black"
         />
         <Button
           title="Jour"
           style={styles.buttonCal}
           onPress={() => setViewMode("day")}
+          color="black"
         />
       </View>
 
@@ -95,6 +100,7 @@ const CompteScreen = () => {
           style={styles.todayButton}
           title="29/03"
           onPress={goToCurrentDate}
+          color="black"
         />
       </TouchableOpacity>
 
@@ -108,7 +114,7 @@ const CompteScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightgreen",
+    backgroundColor: "#BCCEBF",
   },
   buttonContainer: {
     flexDirection: "row",
